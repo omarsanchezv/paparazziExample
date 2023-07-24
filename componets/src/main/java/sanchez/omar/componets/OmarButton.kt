@@ -1,5 +1,6 @@
 package sanchez.omar.componets
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,11 +47,18 @@ fun OmarButton(
 
 @Composable
 @Preview(showBackground = true)
-private fun OmarButtonPreview() = Box(modifier = Modifier.fillMaxSize()) {
+fun OmarButtonPreview() = Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(MaterialTheme.colorScheme.background)
+) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         OmarButton(content = { Text(text = "Click button") }) {}
         OmarButton(enabled = false, content = { Text(text = "Click button") }) {}
         OmarButton(loading = true, content = { Text(text = "Click button") }) {}
-        OmarButton(loading = true, enabled = false, content = { Text(text = "Click button") }) {}
+        OmarButton(
+            loading = true,
+            enabled = false,
+            content = { Text(text = "Click button") }) {}
     }
 }
